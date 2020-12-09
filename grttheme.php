@@ -8,7 +8,7 @@ use Joomla\CMS\Plugin\CMSPlugin;
 // require classmap
 require_once __DIR__ . '/classmap.php';
 
-class plgSystemYOOtheme extends CMSPlugin
+class plgSystemGRTtheme extends CMSPlugin
 {
     /**
      * @var \JDatabaseDriver
@@ -30,7 +30,11 @@ class plgSystemYOOtheme extends CMSPlugin
     {
         parent::__construct($subject, $config);
 
-        $pattern = JPATH_ROOT . '/templates/*/template_bootstrap.php';
+        $pattern = JPATH_ROOT . '/templates/visualtheme/template_bootstrap.php';
+        
+       /* echo'<pre>';print_r( $pattern );echo'</pre>'.__FILE__.' '.__LINE__;
+        
+        die(__FILE__ .' '. __LINE__ );*/
 
         array_map([$this, 'loadFile'], glob($pattern) ?: array());
     }
